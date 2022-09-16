@@ -8,7 +8,13 @@ class UsuarioRepositorio {
 
     fun agregar(usuario: Usuario) {
         if (existe(usuario.nickname)) {
-            usuarios.add(usuario);
+            try {
+                usuarios.add(usuario);
+            } catch (e: NicknameRepetido) {
+                println("El nombre de usuario ya existe")
+            } finally {
+                "Por favor vuelva a ingresar un usuario valido"
+            }
         }
     }
 

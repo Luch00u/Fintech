@@ -46,11 +46,7 @@ class Fintech(val nombre: String, val cuit: String) {
         }
         println("Fecha alta");
         val fecha = readln();
-        try {
-            usuarios.agregar(Usuario(nickname, password, nombre, apellido, saldo, fecha));
-        } catch (e: NicknameRepetido) {
-            println("El nombre de usuario ya existe");
-        }
+        usuarios.agregar(Usuario(nickname, password, nombre, apellido, saldo, fecha));
 
 
     }
