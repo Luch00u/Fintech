@@ -5,7 +5,7 @@ import entidades.Cuenta
 class CuentaRepositorio {
     val cuentas = mutableListOf<Cuenta>()
 
-    fun agregar(cuenta: Cuenta) {
+   /* fun agregar(cuenta: Cuenta) {
         cuentas.add(cuenta)
     }
 
@@ -20,5 +20,5 @@ class CuentaRepositorio {
 
     fun buscar(nombre: String, apellido: String): List<Cuenta> {
         //TODO: Completar
-    }
+    }*/
 }

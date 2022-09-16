@@ -4,7 +4,7 @@ import entidades.Compra
 
 class CompraRepositorio {
     val compra = mutableListOf<Compra>()
-
+/*
     fun agregar(compra: Compra) {
         this.compra.add(compra)
     }
@@ -21,5 +21,5 @@ class CompraRepositorio {
     //TODO: elegir los datos para buscar
     fun buscar(): List<Compra> {
         //TODO: Completar
-    }
+    }*/
 }
