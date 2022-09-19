@@ -1,4 +1,4 @@
-import entidades.Fintech
+import entidades.Usuario
 import repositorios.CompraRepositorio
 import repositorios.CuentaRepositorio
 import repositorios.UsuarioRepositorio
@@ -6,29 +6,32 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 fun main() {
-    val orange: Fintech = Fintech("orange", "238775499");
+    // ---------- INSTANCIA DE OBJETOS Y VARIABLES  -------------------
     val cuentas: CuentaRepositorio = CuentaRepositorio();
     val usuarios: UsuarioRepositorio = UsuarioRepositorio();
     val compras: CompraRepositorio = CompraRepositorio();
-
     var opcion = 0;
+    var nickname: String;
+    var password: String;
+    var codCuenta: Int;
     //------------- INICIO DE PROGRAMA -----------------
+
     do {
-        println("Bienvenido a Orange\n1)Registrarse\n2)Iniciar Sesión")
-        opcion = readln().toInt();
-        when (opcion) {
-            1 -> orange.registrarse(usuarios,cuentas);
-            2 -> orange.iniciarSesion(usuarios);
-        }
+        println("  ============        Bienvenido a Orange        ============== ")
 
 
-
-
-        println("Desea continuar?\n1)Continuar   2)Salir");
-        opcion = readln().toInt();
         while (opcion != 1 && opcion != 2) {
-            println("Por favor ingrese una opcion correcta\n1)Continuar   2)Salir");
-            opcion = readln().toInt();
+            println("Iniciar Sesionm\nIngrese Usuario")
+            nickname = readln();
+            println("Ingrese Contraseña")
+            password = readln();
+            val encontrado: Usuario? = usuarios.iniciar(nickname, password);
+            if (encontrado != null) {
+                codCuenta = encontrado.codigoCuenta;
+                cuentas.obtenerPorCodigo(codCuenta);
+            } else {
+                opcion = 2;
+            }
         }
     } while (opcion != 2)
 

@@ -4,6 +4,7 @@ import java.time.LocalDate
 import java.time.LocalTime
 
 data class Compra(
+    val codigoCuenta: Int,
     val codigoCompra: Int,
     val fechaCompra: LocalDate,
     val horaCompra: LocalTime,

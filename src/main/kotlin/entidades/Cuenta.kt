@@ -7,5 +7,7 @@ data class Cuenta(
     val nombre: String,
     val apellido: String,
     val dineroEnCuenta: Double,
-    val fechaAlta: LocalDate
+    val fechaAlta: String
 )
+
+

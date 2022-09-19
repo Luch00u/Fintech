@@ -6,16 +6,26 @@ import entidades.Usuario
 class UsuarioRepositorio {
     val usuarios = mutableListOf<Usuario>()
 
+    init {
+        val usuario1: Usuario = Usuario("Luch0u", "lucho12345", 1);
+        val usuario2: Usuario = Usuario("Rodri", "soyeldody", 2);
+        val usuario3: Usuario = Usuario("Crusher", "12345678910once", 3);
+
+        usuarios.add(usuario1)
+        usuarios.add(usuario2)
+        usuarios.add(usuario3)
+
+    }
+
     fun agregar(usuario: Usuario) {
-        if (existe(usuario.nickname)) {
-            try {
+        try {
+            if (!existe(usuario.nickname)) {
                 usuarios.add(usuario);
-            } catch (e: NicknameRepetido) {
-                println("El nombre de usuario ya existe")
-            } finally {
-                "Por favor vuelva a ingresar un usuario valido"
             }
+        } catch (e: NicknameRepetido) {
+            println("Nickname repetido");
         }
+
     }
 
     fun eliminar(usuario: Usuario) {
@@ -35,14 +45,20 @@ class UsuarioRepositorio {
         val listaUsuario: MutableList<Usuario> = mutableListOf();
         return listaUsuario;
     }*/
-    fun iniciar(nickname: String, password: String): Usuario {
+
+    fun iniciar(nickname: String, password: String): Usuario? {
         var encontrado: Usuario? = null;
         for (u in usuarios) {
             if (u.nickname == nickname && u.password == password) {
                 encontrado = u;
+                println("Existe");
+                break;
+            } else {
+                println("No existe");
+                break;
             }
         }
-        return encontrado!!;
+        return encontrado;
     }
 
 
