@@ -1,8 +1,8 @@
 package entidades
 
-class Criptomas(nombre: String, precio: Double) : Exchange(nombre, precio) {
+class Criptomas(nombre: String) : Exchange(nombre) {
 
-
+    //---------- COMISION -------------
     override fun calcularComision(monto: Double): Double {
         var total = 0.00;
         total=monto * 1.02

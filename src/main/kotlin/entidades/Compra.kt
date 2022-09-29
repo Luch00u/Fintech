@@ -11,4 +11,6 @@ data class Compra(
     val criptomoneda: String,
     val valorAdquirido: Double,
     val valorPagado: Double
-)
+    )
+
+

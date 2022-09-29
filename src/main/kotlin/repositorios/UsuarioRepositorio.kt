@@ -42,11 +42,6 @@ class UsuarioRepositorio {
         return true;
     }
 
-    /*fun iniciar(nickname: String, password: String): List<Usuario> {
-        val listaUsuario: MutableList<Usuario> = mutableListOf();
-        return listaUsuario;
-    }*/
-
     fun iniciar(nickname: String, password: String): Usuario {
         var encontrado: Usuario? = null
         for (u in usuarios) {
